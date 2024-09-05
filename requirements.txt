@@ -1,0 +1,17 @@
+DB Project/
+├── app/
+│   ├── models/
+│   │   └── models.py
+│   ├── routes/
+│   │   └── routes.py
+│   ├── templates/
+│   │   └── index.html
+│   ├── static/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── images/
+│   ├── __init__.py
+├── migrations/
+├── venv/
+├── requirements.txt
+└── run.py
