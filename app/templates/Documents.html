@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+        }
+
+        /* Header Banner */
+        .header-banner {
+            padding: 20px 0;
+            background-color: #a0c5ee;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .header-left, .header-right {
+            padding: 0 20px;
+        }
+        .header-left h1, .header-right a {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Section and Cards */
+        .flex-sect {
+            background-color: #fafafa;
+            padding: 100px 0;
+        }
+        .flex-title {
+            margin-bottom: 15px;
+            font-size: 2em;
+            text-align: center;
+            font-weight: 700;
+            color: #555;
+            padding: 5px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            height: 300px;
+            width: 300px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            transition: all 0.5s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        .card-header {
+            height: 155px;
+            background-size: cover;
+            background-position: center center;
+        }
+        .card-header.ch1 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/d_card1.jpg");
+        }
+        .card-header.ch2 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/d_card2.jpg");
+        }
+        .card-header.ch3 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/d_card3.jpg");
+        }
+        .card-header.ch4 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/d_card4.jpg");
+        }
+        .card-header.ch5 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/d_card5.jpg");
+        }
+        .card-header.ch6 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/d_card6.jpg");
+        }
+        .card-body {
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+        }
+        .card-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with VIKCORP and Home Navigation Links -->
+    <header class="header-banner">
+        <div class="header-left">
+            <h1>VIKCORP</h1>
+        </div>
+        <div class="header-right">
+            <a href="file:///C:/Users/prian/OneDrive/Desktop/DB%20Project/app/templates/home.html">Home</a>
+        </div>
+    </header>
+
+    <!-- Document Cards Section -->
+    <section id="documents-section" class="flex-sect">
+        <div class="container-width">
+            <div class="flex-title">Available Documents</div>
+            <div class="cards">
+                
+                <!-- Move-In Document -->
+                <div class="card">
+                    <div class="card-header ch1"></div>
+                    <div class="card-body">
+                        <div class="card-title">Move-In Checklist</div>
+                        <div class="card-desc">Details and checklist for a smooth move-in process.</div>
+                    </div>
+                </div>
+
+                <!-- Lease Agreement Document -->
+                <div class="card">
+                    <div class="card-header ch2"></div>
+                    <div class="card-body">
+                        <div class="card-title">Lease Agreement</div>
+                        <div class="card-desc">Review and access your signed lease agreement here.</div>
+                    </div>
+                </div>
+
+                <!-- Move-Out Document -->
+                <div class="card">
+                    <div class="card-header ch3"></div>
+                    <div class="card-body">
+                        <div class="card-title">Move-Out Checklist</div>
+                        <div class="card-desc">Checklist for a seamless move-out process.</div>
+                    </div>
+                </div>
+
+                <!-- Online Payment Agreement Document -->
+                <div class="card">
+                    <div class="card-header ch4"></div>
+                    <div class="card-body">
+                        <div class="card-title">Online Payment Agreement</div>
+                        <div class="card-desc">Terms for online rent payments and billing information.</div>
+                    </div>
+                </div>
+
+                <!-- Renter's Inspection Worksheet Document -->
+                <div class="card">
+                    <div class="card-header ch5"></div>
+                    <div class="card-body">
+                        <div class="card-title">Renter's Inspection Worksheet</div>
+                        <div class="card-desc">Inspect and document property conditions.</div>
+                    </div>
+                </div>
+
+                <!-- Rental Application Document -->
+                <div class="card">
+                    <div class="card-header ch6"></div>
+                    <div class="card-body">
+                        <div class="card-title">Rental Application</div>
+                        <div class="card-desc">Access and complete your rental application.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        
+        /* Header Banner */
+        .header-banner {
+            padding: 20px 0;
+            background-color: #a0c5ee;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .header-left, .header-right {
+            padding: 0 20px;
+        }
+        .header-left h1, .header-right a {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #263363;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with VIKCORP and Home Navigation Links -->
+    <header class="header-banner">
+        <div class="header-left">
+            <h1>VIKCORP</h1>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('go_home') }}" class="nav-link">HOME</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Payments</h1>
+        <p>This is the Payments page. Add your payment-related content here.</p>
+    </div>
+    
+</body>
+</html>

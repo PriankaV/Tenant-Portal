@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Staff Entry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        
+        /* Header Banner */
+        .header-banner {
+            padding: 20px 0;
+            background-color: #a0c5ee;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .header-left, .header-right {
+            padding: 0 20px;
+        }
+        .header-left h1, .header-right a {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Container and Form Styling */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #263363;
+            text-align: center;
+        }
+        
+        /* Form Element Styling */
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        select, input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        /* Toggle Switch Styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        /* Submit Button Styling */
+        .upload-btn {
+            width: 100%;
+            padding: 10px;
+            color: white;
+            background-color: #2196F3;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .upload-btn:hover {
+            background-color: #1a8cd8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with VIKCORP and Home Navigation Links -->
+    <header class="header-banner">
+        <div class="header-left">
+            <h1>VIKCORP</h1>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('go_home') }}" class="nav-link">HOME</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Property Staff Entry</h1>
+        
+        <!-- Form Start -->
+        <form>
+            <!-- Pet Ownership Toggle -->
+            <div class="form-group">
+                <label for="pet">If you have a pet:</label>
+                <label class="switch">
+                    <input type="checkbox" id="pet">
+                    <span class="slider"></span>
+                </label>
+                <span id="petStatus">No - Don't have a pet</span>
+            </div>
+    
+            <!-- Entry Note -->
+            <div class="form-group">
+                <label for="entryNote">Entry Note (optional):</label>
+                <input type="text" id="entryNote" placeholder="Enter note...">
+            </div>
+    
+            <!-- Issue Details Section -->
+            <h2>Issue Details</h2>
+            <div class="form-group">
+                <label for="issueLocation">Issue Location (required):</label>
+                <input type="text" id="issueLocation" required placeholder="Enter location...">
+            </div>
+            <div class="form-group">
+                <label for="issueDetails">Details of Specific Problem (required):</label>
+                <input type="text" id="issueDetails" required placeholder="Describe the problem...">
+            </div>
+            <div class="form-group">
+                <label for="priority">Priority:</label>
+                <select id="priority" required>
+                    <option value="" disabled selected>Select priority</option>
+                    <option value="emergency">Emergency</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+    
+            <!-- Picture Upload Section -->
+            <h2>Upload Pictures</h2>
+            <div class="form-group">
+                <label for="upload">You can upload up to 5 pictures of the issue:</label>
+                <input type="file" id="upload" accept="image/*" multiple>
+            </div>
+    
+            <!-- Submit Button -->
+            <button type="submit" class="upload-btn">Submit Request</button>
+        </form>
+    </div>
+    
+    <!-- JavaScript for Toggle Switch -->
+    <script>
+        const petSwitch = document.getElementById('pet');
+        const petStatus = document.getElementById('petStatus');
+        
+        petSwitch.addEventListener('change', () => {
+            petStatus.textContent = petSwitch.checked ? "Yes - Do have a pet" : "No - Don't have a pet";
+        });
+    </script>
+    
+</body>
+</html>

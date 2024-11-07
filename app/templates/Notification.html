@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIKCORP Tenant Portal - Notifications</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        /* Header Banner */
+        .header-banner {
+            padding: 20px 0;
+            background-color: #a0c5ee;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .header-left, .header-right {
+            padding: 0 20px;
+        }
+        .header-left h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .header-right a {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        .header-right a:hover {
+            color: #263363; /* Change color on hover for better visibility */
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #263363;
+            text-align: center;
+        }
+        
+        /* Notifications Styling */
+        .notifications-list {
+            list-style: none;
+            padding: 0;
+        }
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        .notification-item.unread {
+            background-color: #eaf1ff;
+        }
+        .mark-read {
+            cursor: pointer;
+            color: #2196F3;
+            font-size: 0.9em;
+            text-decoration: underline;
+        }
+        .settings-section {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .settings-section h2 {
+            color: #263363;
+            margin-bottom: 10px;
+        }
+        .mark-all {
+            cursor: pointer;
+            color: #2196F3;
+            font-size: 1em;
+            text-decoration: underline;
+            float: right;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with VIKCORP and Home Navigation Links -->
+    <header class="header-banner">
+        <div class="header-left">
+            <h1>VIKCORP</h1>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('go_home') }}" class="nav-link">HOME</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Notifications</h1>
+
+        <!-- Mark All as Read -->
+        <span class="mark-all" onclick="markAllAsRead()">Mark all as read</span>
+
+        <!-- Notifications List -->
+        <ul class="notifications-list">
+            <li class="notification-item unread">
+                <span>Maintenance request #123 has been resolved.</span>
+                <span class="mark-read" onclick="markAsRead(this)">Mark as read</span>
+            </li>
+            <li class="notification-item unread">
+                <span>Upcoming property inspection on 15th Nov.</span>
+                <span class="mark-read" onclick="markAsRead(this)">Mark as read</span>
+            </li>
+            <li class="notification-item">
+                <span>Your rent payment for October has been processed.</span>
+            </li>
+            <li class="notification-item">
+                <span>Community event scheduled for 25th October at the clubhouse.</span>
+            </li>
+        </ul>
+
+        <!-- Notification Settings Section -->
+        <div class="settings-section">
+            <h2>Notification Settings</h2>
+            <label>
+                <input type="checkbox" checked> Email Notifications
+            </label><br>
+            <label>
+                <input type="checkbox" checked> SMS Notifications
+            </label><br>
+            <label>
+                <input type="checkbox"> Push Notifications
+            </label>
+        </div>
+    </div>
+
+    <script>
+        function markAsRead(element) {
+            element.parentElement.classList.remove("unread");
+            element.style.display = "none";
+        }
+
+        function markAllAsRead() {
+            document.querySelectorAll(".notification-item.unread").forEach(item => {
+                item.classList.remove("unread");
+                item.querySelector(".mark-read").style.display = "none";
+            });
+        }
+    </script>
+</body>
+</html>
