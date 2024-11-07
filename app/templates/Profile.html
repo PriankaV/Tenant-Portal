@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIKCORP Tenant Portal - Profile</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Header Banner */
+        .header-banner {
+            padding: 20px 0;
+            background-color: #a0c5ee;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .header-left, .header-right {
+            padding: 0 20px;
+        }
+        .header-left h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .header-right a {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        .header-right a:hover {
+            color: #263363; /* Change color on hover for better visibility */
+        }
+
+        /* Main Container Styling */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #263363;
+            text-align: center;
+        }
+
+        /* Profile Information Styling */
+        .profile-info {
+            margin-top: 20px;
+        }
+
+        /* Profile Actions Styling */
+        .profile-actions {
+            margin-top: 20px;
+        }
+
+        .edit-button {
+            display: inline-block;
+            margin: 5px 0;
+            padding: 10px 15px;
+            background-color: #263363;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .edit-button:hover {
+            background-color: #ffa500; /* Change button color on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with VIKCORP and Home Navigation Links -->
+    <header class="header-banner">
+        <div class="header-left">
+            <h1>VIKCORP</h1>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('go_home') }}" class="nav-link">HOME</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Profile</h1>
+        
+        <!-- Profile Information -->
+        <div class="profile-info">
+            <h2>User Information</h2>
+            <p><strong>Name:</strong> {{ user.name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Phone:</strong> {{ user.phone }}</p>
+            <p><strong>Address:</strong> {{ user.address }}</p>
+        </div>
+
+        <!-- Profile Actions -->
+        <div class="profile-actions">
+            <h2>Account Actions</h2>
+            <a href="{{ url_for('edit_profile') }}" class="edit-button">Edit Profile</a>
+            <a href="{{ url_for('change_password') }}" class="edit-button">Change Password</a>
+            <a href="{{ url_for('delete_account') }}" class="edit-button">Delete Account</a>
+        </div>
+    </div>
+    
+</body>
+</html>

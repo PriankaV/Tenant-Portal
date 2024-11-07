@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenant Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Helvetica, serif;
+        }
+        
+        /* Header Banner */
+        .header-banner {
+            color: #263363;
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container-width {
+            width: 90%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        .lead-title {
+            margin: 50px 0 20px;
+            font-size: 60px;
+            color: #263363; /* Dark blue color for "TENANT PORTAL" */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Light Blue Banner */
+        .light-blue-banner {
+            background-color: #add8e6; /* Light blue color */
+            padding: 10px 0;
+            text-align: center;
+            color: #263363;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Flex Section */
+        .flex-sect {
+            background-color: #fafafa;
+            padding: 100px 0;
+        }
+        .flex-title {
+            margin-bottom: 15px;
+            font-size: 2em;
+            text-align: center;
+            font-weight: 700;
+            color: #555;
+            padding: 5px;
+        }
+        
+        /* Card Styling */
+        .cards {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color: white;
+            height: 300px;
+            width: 300px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            transition: all 0.5s ease;
+            font-weight: 100;
+            overflow: hidden;
+        }
+        .card-header {
+            height: 155px;
+            background-size: cover;
+            background-position: center;
+        }
+        .card-body {
+            padding: 15px;
+            color: #555;
+        }
+        .card-title {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            line-height: 17px;
+        }
+        .card:hover {
+            margin-top: -5px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Background images for card headers */
+        .card-header.ch1 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card1.png");
+        }
+        .card-header.ch2 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card2.jpg");
+        }
+        .card-header.ch3 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card3.jpg");
+        }
+        .card-header.ch4 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card4.jpg");
+        }
+        .card-header.ch5 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card5.jpg");
+        }
+        .card-header.ch6 {
+            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card6.jpg");
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Light Blue Banner -->
+    <div class="light-blue-banner">
+        VIKCORP | HOME
+    </div>
+
+    <!-- Header Banner -->
+    <header class="header-banner">
+        <div class="container-width">
+            <div class="lead-title">TENANT PORTAL</div>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <section class="flex-sect">
+        <div class="container-width">
+            <div class="flex-title">Your Portal</div>
+            <div class="cards">
+                <a href="{{ url_for('C:\Users\prian\OneDrive\Desktop\DB Project\app\templates\Payments.html') }}">
+                    <div class="card">
+                        <div class="card-header ch1"></div>
+                        <div class="card-body">
+                            <div class="card-title">Payment</div>
+                            <div class="card-desc">Easily pay your rent and track payment history.</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Documents.html') }}">
+                    <div class="card">
+                        <div class="card-header ch2"></div>
+                        <div class="card-body">
+                            <div class="card-title">Documents</div>
+                            <div class="card-desc">Access lease agreements and other important documents.</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Maintenance.html') }}">
+                    <div class="card">
+                        <div class="card-header ch3"></div>
+                        <div class="card-body">
+                            <div class="card-title">Maintenance</div>
+                            <div class="card-desc">Submit maintenance requests and track their status.</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Contacts.html') }}">
+                    <div class="card">
+                        <div class="card-header ch4"></div>
+                        <div class="card-body">
+                            <div class="card-title">Contact</div>
+                            <div class="card-desc">Get in touch with property management for assistance.</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Notification.html') }}">
+                    <div class="card">
+                        <div class="card-header ch5"></div>
+                        <div class="card-body">
+                            <div class="card-title">Notifications</div>
+                            <div class="card-desc">Stay updated with property-related alerts and news.</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Profile.html') }}">
+                    <div class="card">
+                        <div class="card-header ch6"></div>
+                        <div class="card-body">
+                            <div class="card-title">Profile</div>
+                            <div class="card-desc">Manage your personal information and account settings.</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+</body>
+</html>
