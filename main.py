@@ -1,19 +1,26 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask import Flask, render_template, redirect, url_for, request, flash, session
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from models import User, Property, Tenant, Lease, Payment, MaintenanceRequest, Document
 
 app = Flask(__name__)
+app = Flask(name)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://routes:Password9@localhost/tms_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'your-secret-key-here'  # Replace with a real secret key
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-from flask import Flask, render_template, redirect, url_for, request, flash, session
-from werkzeug.security import generate_password_hash, check_password_hash
-from app import app, db
-from models import User
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'  #Specify what page to load for non-authenticated users
+login_manager.login_message_category = 'info'  #Specify the flash message category
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -47,7 +54,7 @@ def login():
         
         user = User.query.filter_by(username=username).first()
         
-        # Check if user exists and password is correct
+        #Check if user exists and password is correct
         if user and user.check_password(password):
             session['user_id'] = user.id
             flash('Login successful!', 'success')
@@ -62,7 +69,6 @@ def logout():
     session.pop('user_id', None)
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
-
 
 @app.route('/')
 def home():

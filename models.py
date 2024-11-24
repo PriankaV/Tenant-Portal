@@ -1,7 +1,14 @@
-from app import db
-from datetime import datetime
+from app import db, login_manger
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
+
+@login_manger.user_loader
+def load_user(id):
+    return User.query.get(int()id)
 
 # User Model (Existing)
 class User(db.Model):
@@ -13,7 +20,7 @@ class User(db.Model):
     dob = db.Column(db.Date)
     password = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(20))
-
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
     password_hash = db.Column(db.String(255), nullable=False)
 
     def set_password(self, password):
@@ -21,7 +28,6 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-
 
     def __repr__(self):
         return f'<User {self.username}>'
