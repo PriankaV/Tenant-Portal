@@ -1,17 +1,97 @@
 <!DOCTYPE html>
 <html>
-<head><title>Log In</title></head>
+<head>
+    <title>Log In - VIKCORP</title>
+    <style>
+        .flash-messages {
+            margin: 20px 0;
+            padding: 10px;
+        }
+        .flash-error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ef9a9a;
+        }
+        .flash-success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+        .flash-info {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            border: 1px solid #90caf9;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .remember-me {
+            margin: 15px 0;
+        }
+        .btn {
+            background-color: #263363;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #1a2347;
+        }
+    </style>
+</head>
 <body>
-    <h2>Log In</h2>
-    <form method="POST" action="{{ url_for('login') }}">
-        <label>Username</label>
-        <input type="text" name="username" required>
+    <div class="login-form">
+        <h2>Log In</h2>
         
-        <label>Password</label>
-        <input type="password" name="password" required>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-messages flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         
-        <button type="submit">Log In</button>
-    </form>
-    <a href="{{ url_for('signup') }}">Don’t have an account? Sign up here.</a>
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            
+            <button type="submit" class="btn">Log In</button>
+        </form>
+        
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="{{ url_for('signup') }}">Don't have an account? Sign up here.</a>
+        </div>
+    </div>
 </body>
 </html>

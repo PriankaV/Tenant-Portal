@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenant Portal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <style>
         /* General Styles */
         * {
@@ -104,22 +104,22 @@
 
         /* Background images for card headers */
         .card-header.ch1 {
-            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card1.png");
+            background-image: url("{{url_for('static', filename='pictures/card1.png') }}");
         }
         .card-header.ch2 {
-            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card2.jpg");
+            background-image: url("{{url_for('static', filename='pictures/card2.jpg') }}");
         }
         .card-header.ch3 {
-            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card3.jpg");
+            background-image: url("{{url_for('static', filename='pictures/card3.jpg') }}");
         }
         .card-header.ch4 {
-            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card4.jpg");
+            background-image: url("{{url_for('static', filename='pictures/card4.jpg') }}");
         }
         .card-header.ch5 {
-            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card5.jpg");
+            background-image: url("{{url_for('static', filename='pictures/card5.jpg') }}");
         }
         .card-header.ch6 {
-            background-image: url("C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/pictures/card6.jpg");
+            background-image: url("{{url_for('static', filename='pictures/card6.jpg') }}");
         }
     </style>
 </head>
@@ -142,7 +142,7 @@
         <div class="container-width">
             <div class="flex-title">Your Portal</div>
             <div class="cards">
-                <a href="{{ url_for('C:\Users\prian\OneDrive\Desktop\DB Project\app\templates\Payments.html') }}">
+                <a href="{{ url_for('payment_page') }}">
                     <div class="card">
                         <div class="card-header ch1"></div>
                         <div class="card-body">
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Documents.html') }}">
+                <a href="{{ url_for('documents_page') }}">
                     <div class="card">
                         <div class="card-header ch2"></div>
                         <div class="card-body">
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Maintenance.html') }}">
+                <a href="{{ url_for('maintenance_page') }}">
                     <div class="card">
                         <div class="card-header ch3"></div>
                         <div class="card-body">
@@ -169,7 +169,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Contacts.html') }}">
+                <a href="{{ url_for('contacts_page') }}">
                     <div class="card">
                         <div class="card-header ch4"></div>
                         <div class="card-body">
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Notification.html') }}">
+                <a href="{{ url_for('notifications_page') }}">
                     <div class="card">
                         <div class="card-header ch5"></div>
                         <div class="card-body">
@@ -187,7 +187,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url_for('C:/Users/prian/OneDrive/Desktop/DB Project/app/templates/Profile.html') }}">
+                <a href="{{ url_for('profile_page') }}">
                     <div class="card">
                         <div class="card-header ch6"></div>
                         <div class="card-body">
