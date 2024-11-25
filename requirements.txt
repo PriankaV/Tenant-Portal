@@ -1,23 +1,6 @@
--**WHAT IS THE IDEA?**
-1.The smart recycling system is an automated waste management solution that uses AI-powered cameras to identify and classify recyclables, such as plastic, glass, metal, and paper. Once identified, the system crushes the material to reduce its size and sorts it into the appropriate bin. By automating the sorting process, the system reduces contamination from non-recyclable items and reduces the need for manual sorting.
-
-2. The system’s advanced AI continuously learns from new materials, improving its accuracy and efficiency over time. It collects real-time data on waste trends, helping businesses and municipalities optimize their waste management practices.  Its modular design allows for customization depending on the environment—whether in homes, offices, public spaces, or industrial sites—ensuring that the system can adapt to various recycling needs. This product also allows for scalability, allowing different components to be added based on specific requirements, such as handling electronic waste or managing high volumes in public spaces. This solution addresses common problems in recycling, such as contamination, public confusion, and inefficiencies, while providing a more localized, customizable approach to waste processing.
-
-- **PROBLEMS**
-1. Why hasn't this been an idea yet?
-2. What makes this expensive?
-3. What machines and technologies do they use in facilities?
-4. Red Oak? What is the recyclable problem locally?
-
--**WHAT ARE WE SOLVING?**
-1. Reduce loads of contamination
-2. Reduce the carbon foot print (going to facilities) (burning the whole loads)
-3. Misidentification of recyclables
-4. "Recycling is often centralized in large, expensive facilities, limiting accessibility"
-5. "Current recycling processes in facilities are labor-intensive, requiring workers to manually sort through materials. This can be costly, time-consuming, and prone to errors, and workers are exposed to potentially hazardous waste."
-6. Waste Overflow and Inefficient Collection
-7. "Waste management systems often lack real-time data on the types and quantities of recyclables being collected, which can lead to inefficiencies and a lack of insight into recycling habits."
-
--**RESOURCES**
-1. https://news.climate.columbia.edu/2020/03/13/fix-recycling-america/
-2.
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+Flask-Login==0.5.0
+Flask-Migrate==3.1.0
+Werkzeug==2.0.1
+PyMySQL==1.0.2

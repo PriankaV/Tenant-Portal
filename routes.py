@@ -1,13 +1,14 @@
-from flask import render_template, redirect, url_for, request, flash
-from flask_login import login_user, logout_user, login_required, current_user
-from app import app, db
+from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask_login import login_user, logout_user, current_user
 from app.models import User
-from werkzeug.urls import url_parse
+from app import db
 
-@app.route('/signup', methods=['GET', 'POST'])
+bp = Blueprint('auth', __name__)
+
+@bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('main.home'))
         
     if request.method == 'POST':
         username = request.form['username']
@@ -16,11 +17,11 @@ def signup():
         
         if User.query.filter_by(username=username).first():
             flash('Username already exists', 'error')
-            return redirect(url_for('signup'))
+            return redirect(url_for('auth.signup'))
             
         if User.query.filter_by(email=email).first():
             flash('Email already registered', 'error')
-            return redirect(url_for('signup'))
+            return redirect(url_for('auth.signup'))
         
         user = User(username=username, email=email)
         user.set_password(password)
@@ -28,15 +29,15 @@ def signup():
         db.session.commit()
         
         flash('Registration successful!', 'success')
-        return redirect(url_for('login'))
+        return redirect(url_for('auth.login'))
     
-    return render_template('signup.html')
+    return render_template('auth/signup.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
-        
+        return redirect(url_for('main.home'))
+    
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -46,34 +47,52 @@ def login():
         
         if user is None or not user.check_password(password):
             flash('Invalid username or password', 'error')
-            return redirect(url_for('login'))
+            return redirect(url_for('auth.login'))
         
         login_user(user, remember=remember)
-        
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('home')
+            next_page = url_for('main.home')
         
         flash('Logged in successfully!', 'success')
         return redirect(next_page)
     
-    return render_template('login.html')
+    return render_template('auth/login.html')
 
-@app.route('/logout')
-@login_required
+@bp.route('/logout')
 def logout():
     logout_user()
     flash('You have been logged out.', 'info')
-    return redirect(url_for('login'))
+    return redirect(url_for('auth.login'))
 
-# Protected routes example
-@app.route('/')
-@app.route('/home')
+# app/main/routes.py
+from flask import Blueprint, render_template
+from flask_login import login_required
+
+bp = Blueprint('main', __name__)
+
+@bp.route('/')
+@bp.route('/home')
 @login_required
 def home():
-    return render_template('home.html')
+    return render_template('main/home.html')
 
-@app.route('/profile')
+@bp.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html')
+    return render_template('main/profile.html')
+
+@bp.route('/payments')
+@login_required
+def payments():
+    return render_template('main/payments.html')
+
+@bp.route('/documents')
+@login_required
+def documents():
+    return render_template('main/documents.html')
+
+@bp.route('/maintenance')
+@login_required
+def maintenance():
+    return render_template('main/maintenance.html')
