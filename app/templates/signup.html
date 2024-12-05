@@ -1,20 +1,142 @@
 <!DOCTYPE html>
-<html>
-<head><title>Sign Up</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Tenant Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Helvetica, serif;
+        }
+        
+        /* Header Banner */
+        .header-banner {
+            color: #263363;
+            background-image: url("{{url_for('static', filename='pictures/background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container-width {
+            width: 90%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        .lead-title {
+            margin: 50px 0 20px;
+            font-size: 60px;
+            color: #263363; /* Dark blue color for "TENANT PORTAL" */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Light Blue Banner */
+        .light-blue-banner {
+            background-color: #add8e6; /* Light blue color */
+            padding: 10px 0;
+            text-align: center;
+            color: #263363;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Signup Form Styles */
+        .signup-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #263363;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            background-color: #263363;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #1a2347;
+        }
+        .login-link {
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            color: #263363;
+        }
+    </style>
+</head>
 <body>
-    <h2>Sign Up</h2>
-    <form method="POST" action="{{ url_for('signup') }}">
-        <label>Username</label>
-        <input type="text" name="username" required>
-        
-        <label>Email</label>
-        <input type="email" name="email" required>
-        
-        <label>Password</label>
-        <input type="password" name="password" required>
-        
-        <button type="submit">Sign Up</button>
-    </form>
-    <a href="{{ url_for('login') }}">Already have an account? Login here.</a>
+
+    <!-- Light Blue Banner -->
+    <div class="light-blue-banner">
+        VIKCORP | SIGN UP
+    </div>
+
+    <!-- Header Banner -->
+    <header class="header-banner">
+        <div class="container-width">
+            <div class="lead-title">TENANT PORTAL</div>
+        </div>
+    </header>
+
+    <!-- Signup Form Section -->
+    <div class="signup-form">
+        <h2 style="text-align: center;">Sign Up</h2>
+        <form method="POST" action="{{ url_for('signup') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <a href="{{ url_for('login') }}" class="login-link">Already have an account? Login here.</a>
+    </div>
+
 </body>
 </html>
