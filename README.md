@@ -26,6 +26,3 @@ The primary objective of TMS is to streamline property management processes by a
 - **Maintenance Request System**: Tenants can submit maintenance requests, including images and descriptions. Property managers can track, assign, and update the status of these requests.
 - **Analytics Dashboard for Property Managers**: An analytics dashboard offering insights into payment trends, lease renewals, tenant satisfaction, and more, helping property managers optimize their strategies.
 - **Automated Lease Renewal System**: Tenants can receive automatic notifications about lease renewals and renew their leases online with digital signatures.
-
-## Technologies 💻
-
